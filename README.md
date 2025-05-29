@@ -7,14 +7,14 @@
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 
-![GitHub last commit](https://img.shields.io/github/last-commit/turingbox/turingbox-landing)
-![GitHub issues](https://img.shields.io/github/issues/turingbox/turingbox-landing)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/turingbox/turingbox-landing)
-![License](https://img.shields.io/github/license/turingbox/turingbox-landing)
+![GitHub last commit](https://img.shields.io/github/last-commit/turing-box-web-node/turingbox-landing)
+![GitHub issues](https://img.shields.io/github/issues/turing-box-web-node/turingbox-landing)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/turing-box-web-node/turingbox-landing)
+![License](https://img.shields.io/github/license/turing-box-web-node/turingbox-landing)
 
 **TuringBox Landing** es la página web oficial de TuringBox, una plataforma innovadora que está construyendo el futuro con Inteligencia Artificial. Esta landing page está desarrollada con tecnologías modernas para ofrecer una experiencia única y atractiva a nuestros usuarios.
 
-[🌐 Demo en Vivo](https://turingbox-landing.vercel.app) • [📋 Reportar Bug](https://github.com/turingbox/turingbox-landing/issues) • [💡 Solicitar Feature](https://github.com/turingbox/turingbox-landing/issues)
+[🌐 Demo en Vivo](https://turingbox-landing.vercel.app) • [📋 Reportar Bug](https://github.com/turing-box-web-node/turingbox-landing/issues) • [💡 Solicitar Feature](https://github.com/turing-box-web-node/turingbox-landing/issues)
 
 </div>
 
@@ -62,13 +62,13 @@
 
 ## 🛠️ Tecnologías Utilizadas
 
-| Tecnología | Versión | Propósito |
-|------------|---------|-----------|
-| ![Astro](https://img.shields.io/badge/Astro-FF5D01?style=flat&logo=astro&logoColor=white) | `5.8.0` | Framework principal |
-| ![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB) | `19.1.0` | Biblioteca de componentes |
-| ![TailwindCSS](https://img.shields.io/badge/Tailwind-38B2AC?style=flat&logo=tailwind-css&logoColor=white) | `4.1.8` | Framework de CSS |
-| ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white) | `Latest` | Tipado estático |
-| ![pnpm](https://img.shields.io/badge/pnpm-F69220?style=flat&logo=pnpm&logoColor=white) | `Latest` | Gestor de paquetes |
+| Tecnología                                                                                                | Versión  | Propósito                 |
+| --------------------------------------------------------------------------------------------------------- | -------- | ------------------------- |
+| ![Astro](https://img.shields.io/badge/Astro-FF5D01?style=flat&logo=astro&logoColor=white)                 | `5.8.0`  | Framework principal       |
+| ![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)                | `19.1.0` | Biblioteca de componentes |
+| ![TailwindCSS](https://img.shields.io/badge/Tailwind-38B2AC?style=flat&logo=tailwind-css&logoColor=white) | `4.1.8`  | Framework de CSS          |
+| ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)  | `Latest` | Tipado estático           |
+| ![pnpm](https://img.shields.io/badge/pnpm-F69220?style=flat&logo=pnpm&logoColor=white)                    | `Latest` | Gestor de paquetes        |
 
 ---
 
@@ -107,7 +107,7 @@ choco install pnpm
 
 ```bash
 # 1️⃣ Clona el repositorio
-git clone https://github.com/turingbox/turingbox-landing.git
+git clone https://github.com/turing-box-web-node/turingbox-landing.git
 cd turingbox-landing
 
 # 2️⃣ Instala las dependencias
@@ -121,7 +121,7 @@ pnpm dev
 
 ```bash
 # 1️⃣ Clona sin historial de git
-npx degit turingbox/turingbox-landing my-turingbox-landing
+npx degit turing-box-web-node/turingbox-landing my-turingbox-landing
 cd my-turingbox-landing
 
 # 2️⃣ Instala las dependencias
@@ -144,12 +144,12 @@ Visita [http://localhost:4321](http://localhost:4321) para ver la aplicación.
 
 <div align="center">
 
-| Comando | Descripción | Uso |
-|---------|-------------|-----|
-| `pnpm dev` | 🚀 Inicia el servidor de desarrollo | Desarrollo local |
-| `pnpm build` | 🏗️ Construye la aplicación para producción | Deploy |
-| `pnpm preview` | 👀 Previsualiza la build de producción | Testing |
-| `pnpm astro` | ⚙️ Ejecuta comandos de Astro CLI | Utilidades |
+| Comando        | Descripción                                | Uso              |
+| -------------- | ------------------------------------------ | ---------------- |
+| `pnpm dev`     | 🚀 Inicia el servidor de desarrollo        | Desarrollo local |
+| `pnpm build`   | 🏗️ Construye la aplicación para producción | Deploy           |
+| `pnpm preview` | 👀 Previsualiza la build de producción     | Testing          |
+| `pnpm astro`   | ⚙️ Ejecuta comandos de Astro CLI           | Utilidades       |
 
 </div>
 
@@ -185,7 +185,7 @@ turingbox-landing/
 
 ```tsx
 // src/components/MiComponente.tsx
-import React from 'react';
+import React from "react";
 
 interface Props {
   title: string;
@@ -196,9 +196,7 @@ export default function MiComponente({ title, description }: Props) {
   return (
     <div className="p-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg">
       <h2 className="text-white font-bold text-xl">{title}</h2>
-      {description && (
-        <p className="text-blue-100 mt-2">{description}</p>
-      )}
+      {description && <p className="text-blue-100 mt-2">{description}</p>}
     </div>
   );
 }
@@ -222,8 +220,8 @@ import MiComponente from '../components/MiComponente.tsx';
 <Layout title="Acerca de TuringBox">
   <main class="container mx-auto px-4 py-8">
     <h1 class="text-4xl font-bold mb-8">Acerca de TuringBox</h1>
-    <MiComponente 
-      title="Nuestra Misión" 
+    <MiComponente
+      title="Nuestra Misión"
       description="Revolucionar el futuro con IA"
       client:load
     />
@@ -259,10 +257,10 @@ pnpm preview
 <details>
 <summary><strong>🚀 Opciones de Despliegue</strong></summary>
 
-| Plataforma | Comando | Documentación |
-|------------|---------|---------------|
-| **Vercel** | `vercel --prod` | [Guía de Vercel](https://docs.astro.build/en/guides/deploy/vercel/) |
-| **Netlify** | `netlify deploy --prod` | [Guía de Netlify](https://docs.astro.build/en/guides/deploy/netlify/) |
+| Plataforma       | Comando                          | Documentación                                                             |
+| ---------------- | -------------------------------- | ------------------------------------------------------------------------- |
+| **Vercel**       | `vercel --prod`                  | [Guía de Vercel](https://docs.astro.build/en/guides/deploy/vercel/)       |
+| **Netlify**      | `netlify deploy --prod`          | [Guía de Netlify](https://docs.astro.build/en/guides/deploy/netlify/)     |
 | **GitHub Pages** | `pnpm build && gh-pages -d dist` | [Guía de GitHub Pages](https://docs.astro.build/en/guides/deploy/github/) |
 
 </details>
@@ -276,13 +274,13 @@ pnpm preview
 
 ### 🌳 **Ramas Principales**
 
-| Rama | Propósito | Protección |
-|------|-----------|------------|
-| `main` | 🚀 Código en producción (estable) | ✅ Protegida |
-| `develop` | 🔧 Rama de desarrollo principal | ✅ Protegida |
-| `feature/*` | ✨ Nuevas funcionalidades | ❌ No protegida |
-| `hotfix/*` | 🚨 Correcciones urgentes en producción | ❌ No protegida |
-| `release/*` | 📦 Preparación de nuevas versiones | ❌ No protegida |
+| Rama        | Propósito                              | Protección      |
+| ----------- | -------------------------------------- | --------------- |
+| `main`      | 🚀 Código en producción (estable)      | ✅ Protegida    |
+| `develop`   | 🔧 Rama de desarrollo principal        | ✅ Protegida    |
+| `feature/*` | ✨ Nuevas funcionalidades              | ❌ No protegida |
+| `hotfix/*`  | 🚨 Correcciones urgentes en producción | ❌ No protegida |
+| `release/*` | 📦 Preparación de nuevas versiones     | ❌ No protegida |
 
 ---
 
@@ -306,7 +304,7 @@ git config --global pull.rebase false
 <summary><strong>2️⃣ Clonar y Configurar el Repositorio</strong></summary>
 
 ```bash
-git clone https://github.com/turingbox/turingbox-landing.git
+git clone https://github.com/turing-box-web-node/turingbox-landing.git
 cd turingbox-landing
 git checkout develop
 ```
@@ -357,15 +355,15 @@ git commit -m "feat: añadir formulario de contacto con validación"
 > [!TIP]
 > Usa estos prefijos para mantener consistencia:
 
-| Prefijo | Descripción | Ejemplo |
-|---------|-------------|---------|
-| `feat:` | ✨ Nueva funcionalidad | `feat: añadir componente de navegación responsiva` |
-| `fix:` | 🐛 Corrección de bug | `fix: corregir problema de scroll en mobile` |
-| `docs:` | 📚 Cambios en documentación | `docs: actualizar README con instrucciones` |
-| `style:` | 💄 Cambios de formato | `style: mejorar espaciado en componente Hero` |
-| `refactor:` | ♻️ Refactorización de código | `refactor: optimizar componente ShinyText` |
-| `test:` | ✅ Añadir o modificar tests | `test: añadir tests para ContactForm` |
-| `chore:` | 🔧 Tareas de mantenimiento | `chore: actualizar dependencias` |
+| Prefijo     | Descripción                  | Ejemplo                                            |
+| ----------- | ---------------------------- | -------------------------------------------------- |
+| `feat:`     | ✨ Nueva funcionalidad       | `feat: añadir componente de navegación responsiva` |
+| `fix:`      | 🐛 Corrección de bug         | `fix: corregir problema de scroll en mobile`       |
+| `docs:`     | 📚 Cambios en documentación  | `docs: actualizar README con instrucciones`        |
+| `style:`    | 💄 Cambios de formato        | `style: mejorar espaciado en componente Hero`      |
+| `refactor:` | ♻️ Refactorización de código | `refactor: optimizar componente ShinyText`         |
+| `test:`     | ✅ Añadir o modificar tests  | `test: añadir tests para ContactForm`              |
+| `chore:`    | 🔧 Tareas de mantenimiento   | `chore: actualizar dependencias`                   |
 
 </details>
 
@@ -393,6 +391,7 @@ git push origin feature/add-contact-form
 
 > [!NOTE]
 > Asegúrate de que tu PR tenga:
+>
 > - [ ] Título descriptivo
 > - [ ] Descripción detallada de los cambios
 > - [ ] Screenshots si hay cambios visuales
@@ -548,17 +547,18 @@ MIT License - see the [LICENSE](./LICENSE) file for details
 
 ### 💬 **¿Necesitas Ayuda?**
 
-| Canal | Enlace | Propósito |
-|-------|--------|-----------|
-| 📧 **Email** | [support@turingbox.com](mailto:support@turingbox.com) | Soporte general |
-| 🐛 **Bug Reports** | [GitHub Issues](https://github.com/turingbox/turingbox-landing/issues) | Reportar problemas |
-| 💡 **Feature Requests** | [GitHub Discussions](https://github.com/turingbox/turingbox-landing/discussions) | Nuevas ideas |
-| 💬 **Chat** | [Discord](https://discord.gg/turingbox) | Comunidad |
+| Canal                   | Enlace                                                                                     | Propósito          |
+| ----------------------- | ------------------------------------------------------------------------------------------ | ------------------ |
+| 📧 **Email**            | [support@turingbox.com](mailto:support@turingbox.com)                                      | Soporte general    |
+| 🐛 **Bug Reports**      | [GitHub Issues](https://github.com/turing-box-web-node/turingbox-landing/issues)           | Reportar problemas |
+| 💡 **Feature Requests** | [GitHub Discussions](https://github.com/turing-box-web-node/turingbox-landing/discussions) | Nuevas ideas       |
+| 💬 **Chat**             | [Discord](https://discord.gg/turingbox)                                                    | Comunidad          |
 
 </div>
 
 > [!NOTE]
 > Para reportes de bugs, por favor incluye:
+>
 > - Versión del navegador
 > - Pasos para reproducir el problema
 > - Screenshots si es posible
@@ -570,7 +570,7 @@ MIT License - see the [LICENSE](./LICENSE) file for details
 
 ### 🌟 **¡Dale una estrella si te gusta el proyecto!**
 
-[![GitHub stars](https://img.shields.io/github/stars/turingbox/turingbox-landing?style=social)](https://github.com/turingbox/turingbox-landing/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/turing-box-web-node/turingbox-landing?style=social)](https://github.com/turing-box-web-node/turingbox-landing/stargazers)
 
 **Desarrollado con ❤️ por el equipo de TuringBox**
 
