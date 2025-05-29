@@ -1,0 +1,79 @@
+name: Auto-assign Reviewer
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  assign-reviewer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assign juduranr as reviewer
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { owner, repo } = context.repo;
+            const pull_number = context.payload.pull_request.number;
+            const reviewer = 'juduranr';
+            
+            try {
+              await github.rest.pulls.requestReviewers({
+                owner: owner,
+                repo: repo,
+                pull_number: pull_number,
+                reviewers: [reviewer]
+              });
+              
+              console.log(`✅ Successfully assigned ${reviewer} as reviewer to PR #${pull_number}`);
+            } catch (error) {
+              console.error(`❌ Error assigning reviewer: ${error.message}`);
+              // No fallar el workflow si no se puede asignar el revisor
+            }
+
+      - name: Check target branch and close if targeting main
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { owner, repo } = context.repo;
+            const pull_number = context.payload.pull_request.number;
+            const target_branch = context.payload.pull_request.base.ref;
+            
+            console.log(`🔍 PR #${pull_number} is targeting branch: ${target_branch}`);
+            
+            if (target_branch === 'main') {
+              console.log(`❌ PR targeting main branch detected. Closing PR #${pull_number}`);
+              
+              // Comentar en el PR
+              const commentBody = '🚫 **Pull Request Cerrado Automáticamente**\n\n' +
+                'Este pull request ha sido cerrado automáticamente porque está dirigido hacia la rama `main`.\n\n' +
+                '**📋 Política del repositorio:**\n' +
+                '- Los pull requests deben dirigirse hacia la rama `develop`\n' +
+                '- Solo administradores y maintainers pueden crear PRs hacia `main`\n\n' +
+                '**🔄 Qué hacer:**\n' +
+                '1. Cambia la rama base de tu PR hacia `develop`\n' +
+                '2. O crea un nuevo PR dirigido hacia `develop`\n\n' +
+                'Si necesitas hacer cambios urgentes en `main`, contacta a un administrador del repositorio.\n\n' +
+                '---\n' +
+                '*Esta acción fue realizada automáticamente por GitHub Actions*';
+            
+              await github.rest.issues.createComment({
+                owner: owner,
+                repo: repo,
+                issue_number: pull_number,
+                body: commentBody
+              });
+              
+              // Cerrar el PR
+              await github.rest.pulls.update({
+                owner: owner,
+                repo: repo,
+                pull_number: pull_number,
+                state: 'closed'
+              });
+              
+              console.log(`✅ PR #${pull_number} has been closed and commented`);
+            } else {
+              console.log(`✅ PR #${pull_number} is targeting ${target_branch} - allowed to proceed`);
+            } 
