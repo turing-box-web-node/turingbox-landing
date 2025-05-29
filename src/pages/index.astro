@@ -1,5 +1,6 @@
 ---
-
+import "../styles/global.css";
+import ShinyText from "../components/ui/animations/ShinyText/ShinyText.tsx";
 ---
 
 <html lang="en">
@@ -10,7 +11,32 @@
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body class="bg-black">
+		<div class="p-8">
+			<ShinyText 
+				text="Welcome to TuringBox" 
+				speed={3} 
+				className="text-4xl font-bold"
+				client:load
+			/>
+			
+			<div class="mt-8">
+				<ShinyText 
+					text="Building the future with AI" 
+					speed={5} 
+					className="text-2xl"
+					client:load
+				/>
+			</div>
+			
+			<div class="mt-8">
+				<ShinyText 
+					text="This effect is disabled" 
+					disabled={true} 
+					className="text-lg"
+					client:load
+				/>
+			</div>
+		</div>
 	</body>
 </html>
