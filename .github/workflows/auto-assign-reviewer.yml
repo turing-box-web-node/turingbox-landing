@@ -13,27 +13,39 @@ jobs:
   assign-reviewer:
     runs-on: ubuntu-latest
     steps:
-      - name: Assign juduranr as reviewer
+      - name: Assign juduranr as reviewer and assignee
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const { owner, repo } = context.repo;
             const pull_number = context.payload.pull_request.number;
-            const reviewer = 'juduranr';
+            const user = 'juduranr';
             
             try {
+              // Asignar como reviewer
               await github.rest.pulls.requestReviewers({
                 owner: owner,
                 repo: repo,
                 pull_number: pull_number,
-                reviewers: [reviewer]
+                reviewers: [user]
               });
               
-              console.log(`✅ Successfully assigned ${reviewer} as reviewer to PR #${pull_number}`);
+              console.log(`✅ Successfully assigned ${user} as reviewer to PR #${pull_number}`);
+              
+              // Asignar como assignee
+              await github.rest.issues.addAssignees({
+                owner: owner,
+                repo: repo,
+                issue_number: pull_number,
+                assignees: [user]
+              });
+              
+              console.log(`✅ Successfully assigned ${user} as assignee to PR #${pull_number}`);
+              
             } catch (error) {
-              console.error(`❌ Error assigning reviewer: ${error.message}`);
-              // No fallar el workflow si no se puede asignar el revisor
+              console.error(`❌ Error assigning ${user}: ${error.message}`);
+              // No fallar el workflow si no se puede asignar
             }
 
       - name: Check target branch and close if targeting main
